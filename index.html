@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RoboFest 2.0 Cultural Night ticket registration — exclusively for B.Tech Faculty of Engineering students at SRM.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎟️</text></svg>">
     <title>RoboFest 2.0 | Cultural Night Ticketing System</title>
 
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         *{
@@ -17,114 +18,181 @@
             box-sizing:border-box;
         }
 
+        :root{
+            --bg:#fafafa;
+            --card:#ffffff;
+            --border:#e5e5e5;
+            --text:#111111;
+            --muted:#6b6b6b;
+            --accent:#111111;
+        }
+
         body{
             font-family:'Inter',sans-serif;
             min-height:100vh;
-            background:linear-gradient(135deg,#0f172a,#1e293b,#312e81);
+            background:var(--bg);
             display:flex;
             justify-content:center;
             align-items:center;
-            padding:20px;
-            color:#fff;
+            padding:24px;
+            color:var(--text);
         }
 
         .card{
             width:100%;
-            max-width:600px;
-            background:rgba(15,23,42,.88);
-            backdrop-filter:blur(14px);
-            border:1px solid rgba(255,255,255,.08);
-            border-radius:22px;
-            padding:45px;
-            box-shadow:0 25px 60px rgba(0,0,0,.45);
-            text-align:center;
+            max-width:440px;
+            background:var(--card);
+            border:1px solid var(--border);
+            border-radius:16px;
+            padding:36px 32px;
         }
 
-        .logo{
-            font-size:58px;
-            margin-bottom:18px;
-        }
-
-        .tag{
-            display:inline-block;
-            background:#2563eb;
-            padding:8px 18px;
-            border-radius:50px;
-            font-size:13px;
-            font-weight:700;
-            letter-spacing:.6px;
+        .eyebrow{
+            font-size:12px;
+            font-weight:600;
+            letter-spacing:.08em;
             text-transform:uppercase;
-            margin-bottom:20px;
+            color:var(--muted);
+            margin-bottom:10px;
         }
 
         h1{
-            font-size:32px;
-            margin-bottom:8px;
-            font-weight:800;
+            font-size:22px;
+            font-weight:700;
+            margin-bottom:4px;
+            letter-spacing:-.01em;
         }
 
         h2{
-            color:#cbd5e1;
-            font-size:18px;
+            color:var(--muted);
+            font-size:14px;
             font-weight:500;
-            margin-bottom:30px;
+            margin-bottom:24px;
+        }
+
+        .divider{
+            height:1px;
+            background:var(--border);
+            margin:24px 0;
+        }
+
+        .section-label{
+            font-size:12px;
+            font-weight:600;
+            letter-spacing:.04em;
+            text-transform:uppercase;
+            color:var(--muted);
+            margin-bottom:10px;
         }
 
         .notice{
-            background:#172554;
-            border-left:5px solid #3b82f6;
-            border-radius:12px;
-            padding:18px;
-            text-align:left;
-            margin-bottom:30px;
+            font-size:13.5px;
+            line-height:1.6;
+            color:var(--text);
+            background:#f5f5f5;
+            border-radius:10px;
+            padding:14px 16px;
+            margin-bottom:20px;
         }
 
-        .notice strong{
-            color:#fff;
+        .terms{
+            font-size:13px;
+            line-height:1.7;
+            color:var(--muted);
+            border:1px solid var(--border);
+            border-radius:10px;
+            padding:14px 16px;
+            max-height:170px;
+            overflow-y:auto;
+            margin-bottom:16px;
+        }
+
+        .terms ol{
+            padding-left:18px;
+        }
+
+        .terms li{
+            margin-bottom:8px;
+        }
+
+        .terms li:last-child{
+            margin-bottom:0;
+        }
+
+        .terms strong{
+            color:var(--text);
+        }
+
+        .check-row{
+            display:flex;
+            align-items:flex-start;
+            gap:10px;
+            margin-bottom:24px;
+            cursor:pointer;
+        }
+
+        .check-row input{
+            margin-top:3px;
+            width:16px;
+            height:16px;
+            flex-shrink:0;
+            accent-color:var(--accent);
+        }
+
+        .check-row span{
+            font-size:13.5px;
+            line-height:1.55;
+            color:var(--text);
         }
 
         .question{
-            font-size:22px;
-            font-weight:700;
-            margin-bottom:35px;
+            font-size:15px;
+            font-weight:600;
+            margin-bottom:16px;
         }
 
         .buttons{
             display:flex;
-            gap:15px;
-            justify-content:center;
+            gap:10px;
             flex-wrap:wrap;
         }
 
         button{
             border:none;
             cursor:pointer;
-            font-size:16px;
-            font-weight:700;
-            padding:16px 30px;
-            border-radius:12px;
-            transition:.25s;
-            min-width:180px;
+            font-size:14px;
+            font-weight:600;
+            padding:13px 20px;
+            border-radius:10px;
+            transition:.15s;
+            flex:1;
+            min-width:140px;
         }
 
         .yes{
-            background:#22c55e;
+            background:var(--accent);
             color:#fff;
         }
 
-        .yes:hover{
-            background:#16a34a;
-            transform:translateY(-2px);
+        .yes:hover:not(:disabled){
+            background:#000;
+            opacity:.85;
+        }
+
+        .yes:disabled{
+            background:#d4d4d4;
+            color:#8a8a8a;
+            cursor:not-allowed;
         }
 
         .no{
-            background:#ef4444;
-            color:#fff;
+            background:#fff;
+            color:var(--text);
+            border:1px solid var(--border);
         }
 
         .no:hover{
-            background:#dc2626;
-            transform:translateY(-2px);
+            background:#f5f5f5;
         }
 
         #failed{
@@ -132,44 +200,107 @@
         }
 
         .icon{
-            font-size:70px;
-            margin-bottom:18px;
+            font-size:34px;
+            margin-bottom:14px;
         }
 
         .reason{
-            margin:28px 0;
-            padding:18px;
-            border-radius:12px;
-            background:#450a0a;
-            border-left:5px solid #ef4444;
-            text-align:left;
+            font-size:13.5px;
+            line-height:1.6;
+            background:#fef2f2;
+            border-radius:10px;
+            padding:14px 16px;
+            margin:18px 0;
+            color:#7f1d1d;
         }
 
         .reason strong{
-            color:#fff;
+            color:#450a0a;
+        }
+
+        .body-text{
+            font-size:14px;
+            line-height:1.7;
+            color:var(--muted);
         }
 
         .footer{
-            margin-top:30px;
-            color:#94a3b8;
-            font-size:14px;
+            margin-top:24px;
+            color:var(--muted);
+            font-size:12.5px;
         }
 
-        @media(max-width:600px){
+        .event-details{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:10px;
+            margin-bottom:20px;
+        }
+
+        .event-details div{
+            border:1px solid var(--border);
+            border-radius:10px;
+            padding:10px 12px;
+        }
+
+        .event-details .label{
+            font-size:11px;
+            font-weight:600;
+            letter-spacing:.04em;
+            text-transform:uppercase;
+            color:var(--muted);
+            margin-bottom:3px;
+        }
+
+        .event-details .value{
+            font-size:13.5px;
+            font-weight:600;
+        }
+
+        .id-reminder{
+            font-size:13px;
+            font-weight:600;
+            color:#7c2d12;
+            background:#fff7ed;
+            border:1px solid #fed7aa;
+            border-radius:10px;
+            padding:10px 14px;
+            margin-bottom:20px;
+        }
+
+        .support{
+            margin-top:14px;
+            font-size:12.5px;
+            color:var(--muted);
+        }
+
+        .support a{
+            color:var(--text);
+            font-weight:600;
+            text-decoration:none;
+        }
+
+        .support a:hover{
+            text-decoration:underline;
+        }
+
+        .back-link{
+            display:inline-block;
+            margin-top:18px;
+            font-size:13px;
+            font-weight:600;
+            color:var(--text);
+            cursor:pointer;
+            text-decoration:none;
+        }
+
+        .back-link:hover{
+            text-decoration:underline;
+        }
+
+        @media(max-width:480px){
             .card{
-                padding:30px 24px;
-            }
-
-            h1{
-                font-size:26px;
-            }
-
-            .question{
-                font-size:19px;
-            }
-
-            button{
-                width:100%;
+                padding:28px 22px;
             }
         }
     </style>
@@ -179,33 +310,77 @@
 <!-- Welcome Screen -->
 <div class="card" id="welcome">
 
-    <div class="logo">🎉</div>
-
-    <div class="tag">
-        RoboFest 2.0
-    </div>
-
-    <h1>Cultural Night Ticketing System</h1>
-
-    <h2>Faculty of Engineering Eligibility Verification</h2>
+    <div class="eyebrow">RoboFest 2.0</div>
+    <h1>Cultural Night Ticketing</h1>
+    <h2>Faculty of Engineering eligibility verification</h2>
 
     <div class="notice">
-        Registration for the <strong>RoboFest 2.0 Cultural Night</strong> is
-        exclusively available to <strong>B.Tech students of the Faculty of Engineering</strong>.
+        Registration for the <strong>RoboFest 2.0 Cultural Night</strong> is exclusively
+        available to <strong>B.Tech students of the Faculty of Engineering, SRM</strong>.
     </div>
+
+    <div class="event-details">
+        <div>
+            <div class="label">Date</div>
+            <div class="value">20 Aug 2026</div>
+        </div>
+        <div>
+            <div class="label">Time</div>
+            <div class="value">7:00 PM</div>
+        </div>
+        <div>
+            <div class="label">Venue</div>
+            <div class="value">Vendhar Square</div>
+        </div>
+        <div>
+            <div class="label">Pass price</div>
+            <div class="value">₹249</div>
+        </div>
+    </div>
+
+    <div class="notice">
+        Cultural Night begins at <strong>7:00 PM</strong> — but come earlier to explore
+        RoboFest 2.0 through the day, including <strong>Robo War</strong> and the other
+        competition events.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Terms &amp; Conditions</div>
+    <div class="terms">
+        <ol>
+            <li>By purchasing this pass, you consent to being <strong>photographed and filmed</strong> during the event, and to the use of that footage for promotional or archival purposes.</li>
+            <li>This pass is valid <strong>only for B.Tech students of the Faculty of Engineering, SRM</strong>.</li>
+            <li>If you purchase this pass and are found to <strong>not</strong> be a B.Tech student of the Faculty of Engineering, SRM, your payment will <strong>not be refunded</strong> and you will <strong>not be permitted entry</strong> to the venue.</li>
+            <li>Entry may require valid SRM ID verification at the venue.</li>
+            <li>This pass is <strong>non-transferable</strong> and may only be used by the student it was purchased for.</li>
+        </ol>
+    </div>
+
+    <div class="id-reminder">
+        ⚠ Bring your valid SRM student ID — it will be checked at entry.
+    </div>
+
+    <label class="check-row">
+        <input type="checkbox" id="agree" onchange="toggleContinue()">
+        <span>I have read and agree to the terms above, including being filmed at the event and the non-refundable eligibility policy.</span>
+    </label>
 
     <div class="question">
         Are you a B.Tech (Faculty of Engineering) student?
     </div>
 
     <div class="buttons">
-        <button class="yes" onclick="continueRegistration()">
-            ✅ Yes, Continue
+        <button class="yes" id="yesBtn" onclick="continueRegistration()" disabled>
+            Yes, continue
         </button>
-
         <button class="no" onclick="showFailed()">
-            ❌ No
+            No
         </button>
+    </div>
+
+    <div class="support">
+        Questions about payment or eligibility? Contact <a href="mailto:[add-support-email]">[Add support email/phone]</a>
     </div>
 
 </div>
@@ -213,26 +388,19 @@
 <!-- Failed Screen -->
 <div class="card" id="failed">
 
-    <div class="icon">❌</div>
-
-    <h1>Registration Failed</h1>
+    <div class="icon">✕</div>
+    <h1>Registration not available</h1>
 
     <div class="reason">
-        <strong>Reason:</strong><br><br>
-        You are not a <strong>B.Tech (Faculty of Engineering)</strong> student.
+        <strong>Reason:</strong> you are not a B.Tech (Faculty of Engineering) student.
     </div>
 
-    <p style="font-size:18px;line-height:1.7;color:#e2e8f0;">
-        Unfortunately, <strong>RoboFest 2.0 Cultural Night</strong> ticket
-        registration is available exclusively to
-        <strong>Faculty of Engineering (B.Tech)</strong> students.
+    <p class="body-text">
+        RoboFest 2.0 Cultural Night ticket registration is available exclusively
+        to B.Tech (Faculty of Engineering) students of SRM.
     </p>
 
-    <br>
-
-    <p style="font-size:18px;font-weight:700;">
-        You are not eligible to register.
-    </p>
+    <a class="back-link" onclick="showWelcome()">← Back</a>
 
     <div class="footer">
         Thank you for your understanding.
@@ -244,13 +412,26 @@
     // Replace this with your Razorpay Payment Link
     const PAYMENT_URL = "https://rzp.io/rzp/robofestpass";
 
+    function toggleContinue(){
+        document.getElementById("yesBtn").disabled = !document.getElementById("agree").checked;
+    }
+
     function continueRegistration(){
+        const btn = document.getElementById("yesBtn");
+        if(!document.getElementById("agree").checked || btn.disabled) return;
+        btn.disabled = true;
+        btn.textContent = "Redirecting…";
         window.location.replace(PAYMENT_URL);
     }
 
     function showFailed(){
-        document.getElementById("welcome").style.display="none";
-        document.getElementById("failed").style.display="block";
+        document.getElementById("welcome").style.display = "none";
+        document.getElementById("failed").style.display = "block";
+    }
+
+    function showWelcome(){
+        document.getElementById("failed").style.display = "none";
+        document.getElementById("welcome").style.display = "block";
     }
 </script>
 
