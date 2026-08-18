@@ -3,437 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RoboFest 2.0 Cultural Night ticket registration — exclusively for B.Tech Faculty of Engineering students at SRM.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎟️</text></svg>">
-    <title>RoboFest 2.0 | Cultural Night Ticketing System</title>
+
+    <title>Sold Out | RoboFest 2.0 Cultural Night</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        :root{
-            --bg:#fafafa;
-            --card:#ffffff;
-            --border:#e5e5e5;
-            --text:#111111;
-            --muted:#6b6b6b;
-            --accent:#111111;
+        :root {
+            --bg: #0a0a0a;
+            --card: #111111;
+            --border: #292929;
+            --text: #ffffff;
+            --muted: #9a9a9a;
+            --accent: #ffffff;
         }
 
-        body{
-            font-family:'Inter',sans-serif;
-            min-height:100vh;
-            background:var(--bg);
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            padding:24px;
-            color:var(--text);
+        body {
+            min-height: 100vh;
+            font-family: "Inter", sans-serif;
+            background:
+                radial-gradient(circle at top, #1d1d1d 0%, #0a0a0a 45%),
+                #0a0a0a;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
         }
 
-        .card{
-            width:100%;
-            max-width:440px;
-            background:var(--card);
-            border:1px solid var(--border);
-            border-radius:16px;
-            padding:36px 32px;
+        .container {
+            width: 100%;
+            max-width: 520px;
+            text-align: center;
         }
 
-        .eyebrow{
-            font-size:12px;
-            font-weight:600;
-            letter-spacing:.08em;
-            text-transform:uppercase;
-            color:var(--muted);
-            margin-bottom:10px;
+        .event-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 28px;
         }
 
-        h1{
-            font-size:22px;
-            font-weight:700;
-            margin-bottom:4px;
-            letter-spacing:-.01em;
+        .event-tag span {
+            width: 7px;
+            height: 7px;
+            background: #ffffff;
+            border-radius: 50%;
         }
 
-        h2{
-            color:var(--muted);
-            font-size:14px;
-            font-weight:500;
-            margin-bottom:24px;
+        .ticket {
+            background: rgba(17, 17, 17, 0.9);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 48px 36px 36px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
         }
 
-        .divider{
-            height:1px;
-            background:var(--border);
-            margin:24px 0;
+        .ticket::before,
+        .ticket::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: var(--bg);
+            border-radius: 50%;
+            top: 68%;
         }
 
-        .section-label{
-            font-size:12px;
-            font-weight:600;
-            letter-spacing:.04em;
-            text-transform:uppercase;
-            color:var(--muted);
-            margin-bottom:10px;
+        .ticket::before {
+            left: -15px;
         }
 
-        .notice{
-            font-size:13.5px;
-            line-height:1.6;
-            color:var(--text);
-            background:#f5f5f5;
-            border-radius:10px;
-            padding:14px 16px;
-            margin-bottom:20px;
+        .ticket::after {
+            right: -15px;
         }
 
-        .terms{
-            font-size:13px;
-            line-height:1.7;
-            color:var(--muted);
-            border:1px solid var(--border);
-            border-radius:10px;
-            padding:14px 16px;
-            max-height:170px;
-            overflow-y:auto;
-            margin-bottom:16px;
+        .icon {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 24px;
+            border: 1px solid #3a3a3a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            background: #181818;
         }
 
-        .terms ol{
-            padding-left:18px;
+        h1 {
+            font-size: clamp(32px, 7vw, 48px);
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            font-weight: 800;
+            margin-bottom: 18px;
         }
 
-        .terms li{
-            margin-bottom:8px;
+        .subtitle {
+            max-width: 400px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.7;
         }
 
-        .terms li:last-child{
-            margin-bottom:0;
+        .sold-out {
+            margin: 32px 0;
+            padding: 18px;
+            border-top: 1px dashed #3a3a3a;
+            border-bottom: 1px dashed #3a3a3a;
         }
 
-        .terms strong{
-            color:var(--text);
+        .sold-out-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
-        .check-row{
-            display:flex;
-            align-items:flex-start;
-            gap:10px;
-            margin-bottom:24px;
-            cursor:pointer;
+        .sold-out-text {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
         }
 
-        .check-row input{
-            margin-top:3px;
-            width:16px;
-            height:16px;
-            flex-shrink:0;
-            accent-color:var(--accent);
+        .details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 30px;
         }
 
-        .check-row span{
-            font-size:13.5px;
-            line-height:1.55;
-            color:var(--text);
+        .detail {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px 8px;
+            background: #151515;
         }
 
-        .question{
-            font-size:15px;
-            font-weight:600;
-            margin-bottom:16px;
+        .detail-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin-bottom: 6px;
         }
 
-        .buttons{
-            display:flex;
-            gap:10px;
-            flex-wrap:wrap;
+        .detail-value {
+            font-size: 13px;
+            font-weight: 600;
         }
 
-        button{
-            border:none;
-            cursor:pointer;
-            font-size:14px;
-            font-weight:600;
-            padding:13px 20px;
-            border-radius:10px;
-            transition:.15s;
-            flex:1;
-            min-width:140px;
+        .footer-message {
+            margin-top: 26px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
         }
 
-        .yes{
-            background:var(--accent);
-            color:#fff;
+        .footer {
+            margin-top: 24px;
+            font-size: 12px;
+            color: #555;
         }
 
-        .yes:hover:not(:disabled){
-            background:#000;
-            opacity:.85;
-        }
+        @media (max-width: 480px) {
+            .ticket {
+                padding: 40px 22px 30px;
+                border-radius: 20px;
+            }
 
-        .yes:disabled{
-            background:#d4d4d4;
-            color:#8a8a8a;
-            cursor:not-allowed;
-        }
+            .details {
+                grid-template-columns: 1fr;
+            }
 
-        .no{
-            background:#fff;
-            color:var(--text);
-            border:1px solid var(--border);
-        }
+            .detail {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 14px 16px;
+            }
 
-        .no:hover{
-            background:#f5f5f5;
-        }
-
-        #failed{
-            display:none;
-        }
-
-        .icon{
-            font-size:34px;
-            margin-bottom:14px;
-        }
-
-        .reason{
-            font-size:13.5px;
-            line-height:1.6;
-            background:#fef2f2;
-            border-radius:10px;
-            padding:14px 16px;
-            margin:18px 0;
-            color:#7f1d1d;
-        }
-
-        .reason strong{
-            color:#450a0a;
-        }
-
-        .body-text{
-            font-size:14px;
-            line-height:1.7;
-            color:var(--muted);
-        }
-
-        .footer{
-            margin-top:24px;
-            color:var(--muted);
-            font-size:12.5px;
-        }
-
-        .event-details{
-            display:grid;
-            grid-template-columns:1fr 1fr;
-            gap:10px;
-            margin-bottom:20px;
-        }
-
-        .event-details div{
-            border:1px solid var(--border);
-            border-radius:10px;
-            padding:10px 12px;
-        }
-
-        .event-details .label{
-            font-size:11px;
-            font-weight:600;
-            letter-spacing:.04em;
-            text-transform:uppercase;
-            color:var(--muted);
-            margin-bottom:3px;
-        }
-
-        .event-details .value{
-            font-size:13.5px;
-            font-weight:600;
-        }
-
-        .id-reminder{
-            font-size:13px;
-            font-weight:600;
-            color:#7c2d12;
-            background:#fff7ed;
-            border:1px solid #fed7aa;
-            border-radius:10px;
-            padding:10px 14px;
-            margin-bottom:20px;
-        }
-
-        .support{
-            margin-top:14px;
-            font-size:12.5px;
-            color:var(--muted);
-        }
-
-        .support a{
-            color:var(--text);
-            font-weight:600;
-            text-decoration:none;
-        }
-
-        .support a:hover{
-            text-decoration:underline;
-        }
-
-        .back-link{
-            display:inline-block;
-            margin-top:18px;
-            font-size:13px;
-            font-weight:600;
-            color:var(--text);
-            cursor:pointer;
-            text-decoration:none;
-        }
-
-        .back-link:hover{
-            text-decoration:underline;
-        }
-
-        @media(max-width:480px){
-            .card{
-                padding:28px 22px;
+            .detail-label {
+                margin-bottom: 0;
             }
         }
     </style>
 </head>
+
 <body>
 
-<!-- Welcome Screen -->
-<div class="card" id="welcome">
+    <main class="container">
 
-    <div class="eyebrow">RoboFest 2.0</div>
-    <h1>Cultural Night Ticketing</h1>
-    <h2>Faculty of Engineering eligibility verification</h2>
-
-    <div class="notice">
-        Registration for the <strong>RoboFest 2.0 Cultural Night</strong> is exclusively
-        available to <strong>B.Tech students of the Faculty of Engineering, SRM</strong>.
-    </div>
-
-    <div class="event-details">
-        <div>
-            <div class="label">Date</div>
-            <div class="value">20 Aug 2026</div>
+        <div class="event-tag">
+            <span></span>
+            RoboFest 2.0
         </div>
-        <div>
-            <div class="label">Time</div>
-            <div class="value">7:00 PM</div>
+
+        <section class="ticket">
+
+            <div class="icon">🎟️</div>
+
+            <h1>We're Sold Out.</h1>
+
+            <p class="subtitle">
+                The response has been incredible. All passes for the
+                RoboFest 2.0 Cultural Night have officially been claimed.
+            </p>
+
+            <div class="sold-out">
+                <div class="sold-out-label">Registration Status</div>
+                <div class="sold-out-text">SOLD OUT</div>
+            </div>
+
+            <div class="details">
+                <div class="detail">
+                    <div class="detail-label">Date</div>
+                    <div class="detail-value">20 Aug 2026</div>
+                </div>
+
+                <div class="detail">
+                    <div class="detail-label">Time</div>
+                    <div class="detail-value">7:00 PM</div>
+                </div>
+
+                <div class="detail">
+                    <div class="detail-label">Venue</div>
+                    <div class="detail-value">Vendhar Square</div>
+                </div>
+            </div>
+
+            <p class="footer-message">
+                Thank you for the overwhelming response. We can't wait to
+                welcome everyone who secured their passes!
+            </p>
+
+        </section>
+
+        <div class="footer">
+            © 2026 RoboFest 2.0
         </div>
-        <div>
-            <div class="label">Venue</div>
-            <div class="value">Vendhar Square</div>
-        </div>
-        <div>
-            <div class="label">Pass price</div>
-            <div class="value">₹249</div>
-        </div>
-    </div>
 
-    <div class="notice">
-        Cultural Night begins at <strong>7:00 PM</strong> — but come earlier to explore
-        RoboFest 2.0 through the day, including <strong>Robo War</strong> and the other
-        competition events.
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="section-label">Terms &amp; Conditions</div>
-    <div class="terms">
-        <ol>
-            <li>By purchasing this pass, you consent to being <strong>photographed and filmed</strong> during the event, and to the use of that footage for promotional or archival purposes.</li>
-            <li>This pass is valid <strong>only for B.Tech students of the Faculty of Engineering, SRM</strong>.</li>
-            <li>If you purchase this pass and are found to <strong>not</strong> be a B.Tech student of the Faculty of Engineering, SRM, your payment will <strong>not be refunded</strong> and you will <strong>not be permitted entry</strong> to the venue.</li>
-            <li>Entry may require valid SRM ID verification at the venue.</li>
-            <li>This pass is <strong>non-transferable</strong> and may only be used by the student it was purchased for.</li>
-        </ol>
-    </div>
-
-    <div class="id-reminder">
-        ⚠ Bring your valid SRM student ID — it will be checked at entry.
-    </div>
-
-    <label class="check-row">
-        <input type="checkbox" id="agree" onchange="toggleContinue()">
-        <span>I have read and agree to the terms above, including being filmed at the event and the non-refundable eligibility policy.</span>
-    </label>
-
-    <div class="question">
-        Are you a B.Tech (Faculty of Engineering) student?
-    </div>
-
-    <div class="buttons">
-        <button class="yes" id="yesBtn" onclick="continueRegistration()" disabled>
-            Yes, continue
-        </button>
-        <button class="no" onclick="showFailed()">
-            No
-        </button>
-    </div>
-
-    <div class="support">
-        Questions about payment or eligibility? Contact <a href="mailto:[add-support-email]">[Add support email/phone]</a>
-    </div>
-
-</div>
-
-<!-- Failed Screen -->
-<div class="card" id="failed">
-
-    <div class="icon">✕</div>
-    <h1>Registration not available</h1>
-
-    <div class="reason">
-        <strong>Reason:</strong> you are not a B.Tech (Faculty of Engineering) student.
-    </div>
-
-    <p class="body-text">
-        RoboFest 2.0 Cultural Night ticket registration is available exclusively
-        to B.Tech (Faculty of Engineering) students of SRM.
-    </p>
-
-    <a class="back-link" onclick="showWelcome()">← Back</a>
-
-    <div class="footer">
-        Thank you for your understanding.
-    </div>
-
-</div>
-
-<script>
-    // Replace this with your Razorpay Payment Link
-    const PAYMENT_URL = "https://rzp.io/rzp/robofest2pass";
-
-    function toggleContinue(){
-        document.getElementById("yesBtn").disabled = !document.getElementById("agree").checked;
-    }
-
-    function continueRegistration(){
-        const btn = document.getElementById("yesBtn");
-        if(!document.getElementById("agree").checked || btn.disabled) return;
-        btn.disabled = true;
-        btn.textContent = "Redirecting…";
-        window.location.replace(PAYMENT_URL);
-    }
-
-    function showFailed(){
-        document.getElementById("welcome").style.display = "none";
-        document.getElementById("failed").style.display = "block";
-    }
-
-    function showWelcome(){
-        document.getElementById("failed").style.display = "none";
-        document.getElementById("welcome").style.display = "block";
-    }
-</script>
+    </main>
 
 </body>
 </html>
